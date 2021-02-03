@@ -1,0 +1,12 @@
+html(lang='en')
+  head
+    title #{title}
+  body
+    h1 #{pageName}
+    p #{pageDescription}
+    #container.col
+      form(action='/' method='post')
+        #container.row
+        input(type="text", name="postalCode", placeholder="ex)H2G1L7")
+        #container.row
+        input(type="submit", value="Find the best shipment!")    

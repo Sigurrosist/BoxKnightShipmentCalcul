@@ -1,0 +1,27 @@
+html(lang='en')
+  head
+    title #{title}
+  body
+    h1 #{pageName}
+    #container.col
+    p The best shipment method for your address is : #{shipment.name}
+    p Expected shipment duration : #{shipment.estimate_days} days
+    p Shipping rate : $ #{shipment.rate}
+    hr
+    p Would you like to use the recommended shipment method to receive your package?
+    form(action="/ship", method="post")
+      p Selected shipment :
+        input(type="text", readonly="true", name="ShipmentID", value=`${shipment.id}|${shipment.type}`)
+      p Address : 
+        input(type="text", name="AddressLine")
+      p Address (extra information) : 
+        input(type="text", name="AddressLine2")
+      p City :
+        input(type="text", name="City")
+      p Province :
+        input(type="text", name="Province")
+      p Country :
+        input(type="text", name="Country")
+      p Postal Code :
+        input(type="text", name="PostalCode")
+      input(type="submit", value="Ship!")
